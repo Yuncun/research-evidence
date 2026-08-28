@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # Reddit posts via the Arctic Shift archive (public API; reddit.com blocks
 # unauthenticated clients). Scores are frozen at post time: rank by comments.
-# usage: reddit.sh <subreddit> [title_query] [since=YYYY-MM-DD, default 120 days ago] [limit=50]
+# usage: reddit.sh <subreddit> [title_query] [since=days or YYYY-MM-DD, default 120] [limit=50]
 # output: comments  date  id  title
 set -euo pipefail
 sub="${1:?usage: reddit.sh <subreddit> [title_query] [since] [limit]}"; q="${2:-}"
-since="${3:-$(python3 -c 'import datetime;print((datetime.date.today()-datetime.timedelta(days=120)).isoformat())')}"
+since="${3:-120}"
+case "$since" in *-*) ;; *) since=$(python3 -c "import datetime,sys;print((datetime.date.today()-datetime.timedelta(days=int(sys.argv[1]))).isoformat())" "$since");; esac
 limit="${4:-50}"
 url="https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=$sub&after=$since&limit=$limit"
 [ -n "$q" ] && url="$url&title=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$q")"

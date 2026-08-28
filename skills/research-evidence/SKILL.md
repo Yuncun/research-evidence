@@ -38,7 +38,7 @@ All in `${CLAUDE_SKILL_DIR}/scripts/`; each prints usage when run bare.
 |---|---|
 | `hn.sh "<query>" [days] [min_points]` | HN stories by points and date |
 | `hn-item.sh <id> [depth]` | one HN story or comment with replies |
-| `reddit.sh <subreddit> [title] [since] [limit]` | posts ranked by comment count |
+| `reddit.sh <subreddit> [title] [days or date] [limit]` | posts ranked by comment count |
 | `reddit-thread.sh <post_id>` | one post with its comment tree |
 | `x.sh <status_id or handle>` | one X post with engagement, or a profile |
 | `gh-stars.sh "<topic>"` or `--owner <user>` | star-sorted repo search |
