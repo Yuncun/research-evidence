@@ -6,7 +6,7 @@ allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/*)
 
 # Research with human evidence
 
-A question is settled in one of three places: by running the code, by asking the user, or by other people. This skill is for the third. Memory is old and doc-shaped; humans are recent and practice-shaped. Stay on the path many people walk, and the burden of correctness is theirs.
+Use this when the answer depends on what other people do, not on code you can run or on the user's own preference. Recent adoption, with numbers, beats a well-argued source and beats memory.
 
 ## Rules
 
@@ -62,5 +62,3 @@ All in `${CLAUDE_SKILL_DIR}/scripts/`; each prints usage when run bare.
 Applies whenever evidence is cited, including evidence remembered from an earlier turn or from training: say where it came from and how old it is.
 
 Table first: source, type, adoption count, date, one-line takeaway. Then proven by humans versus merely plausible. Say plainly when evidence is thin.
-
-For a build decision: the top existing options with counts and push dates, then one line: adopt X, or build because of the named gap.
