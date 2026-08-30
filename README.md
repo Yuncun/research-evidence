@@ -33,7 +33,7 @@ Scripts need `curl`, `python3`, and `gh` (logged in). Reddit is read through the
 
 ## It's working if
 
-- Every source in the answer carries a count and a date.
+- Every source carries a date, and a count where one exists; vendor docs count as a source with no count.
 - A decision to build is preceded by a table of what already exists.
 - "No standard exists" or "only X has this" comes with the search that looked.
 - Evidence quoted from memory or an earlier turn says so, with its age.
