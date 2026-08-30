@@ -10,7 +10,7 @@ case "$since" in *-*) ;; *) since=$(python3 -c "import datetime,sys;print((datet
 limit="${4:-50}"
 url="https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=$sub&after=$since&limit=$limit"
 [ -n "$q" ] && url="$url&title=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1]))" "$q")"
-(curl -sS -m 25 -A "Mozilla/5.0" "$url" || { sleep 3; curl -sS -m 40 -A "Mozilla/5.0" "$url"; }) | python3 -c '
+curl -sS -m 40 --retry 2 --retry-delay 3 --retry-all-errors -A "Mozilla/5.0" "$url" | python3 -c '
 import sys,json,datetime
 try: j=json.load(sys.stdin); d=j.get("data") or []
 except Exception: j={}; d=[]

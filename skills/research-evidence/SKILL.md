@@ -1,6 +1,6 @@
 ---
 name: research-evidence
-description: Research what people actually use, ranked by recent adoption with counts and dates. Use when asked what people use, whether anyone has solved something, or whether something is standard; before building any tool, script, workflow, or skill; and before saying that nothing exists.
+description: Research what people actually use, ranked by recent adoption with counts and dates. Use when asked what people use, whether anyone has solved something, or whether something is standard; before building something many people would also need; and before saying that nothing exists.
 allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/*)
 ---
 
