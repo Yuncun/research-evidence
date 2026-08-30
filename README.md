@@ -31,6 +31,17 @@ evals/              claude plugin eval cases
 
 Scripts need `curl`, `python3`, and `gh` (logged in). Reddit is read through the Arctic Shift archive; X through fxtwitter; HN through Algolia. Nothing needs a paid key.
 
+## It's working if
+
+- Every source in the answer carries a count and a date.
+- A decision to build is preceded by a table of what already exists.
+- "No standard exists" or "only X has this" comes with the search that looked.
+- Evidence quoted from memory or an earlier turn says so, with its age.
+
+## Evals
+
+`evals/` holds cases in the `claude plugin eval` layout. Until that command is available, run each `prompt.md` in a fresh agent with and without the skill and grade against `graders/`. Cases are drawn from real turns where the answer was wrong; `gap-claim-in-context` is the multi-part turn that first failed.
+
 ## License
 
 MIT

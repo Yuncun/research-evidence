@@ -1,20 +1,26 @@
 ---
 name: research-evidence
-description: Research with human evidence. Use when asked what people use for X, whether anyone has solved X, whether X is standard, or before hand-rolling a tool, script, or workflow. Ranks sources by recent human adoption (stars, points, dates) and bundles scripts for HN, Reddit, X, and GitHub.
+description: Settle claims about what exists, what people use, and what is current, by recent human adoption with counts and dates. Use when asked what people use for X, whether anyone has solved X, or whether X is standard; before building any tool, script, workflow, or skill; and before stating that nothing exists or that only one tool has it.
 allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/*)
 ---
 
 # Research with human evidence
 
-On agent and AI-tooling topics, evidence is what humans adopted recently, with the numbers cited.
+A question is settled in one of three places: by running the code, by asking the user, or by other people. This skill is for the third. Memory is old and doc-shaped; humans are recent and practice-shaped. Stay on the path many people walk, and the burden of correctness is theirs.
 
 ## Rules
 
 1. **Recency ranks.** Prefer the last 3 to 4 months; print every source's date; label older material as older and keep it when still cited.
-2. **Adoption ranks**, over how authoritative a source sounds. Points, comments, reactions, stars, push dates. A one-line answer from the team that builds the tool counts as adoption too.
+2. **Adoption ranks**, over how well a source argues. Points, comments, reactions, stars, push dates. A one-line answer from the team that builds the tool counts as adoption too.
 3. **Cite the counts** with each source.
-4. **Prior art first.** For anything that is a means rather than the product (tooling, scripts, workflows, machine fixes), show the top existing options with adoption numbers before proposing to build one.
+4. **Building is a claim that nothing fits.** Before building any means (tooling, scripts, workflows, skills, machine fixes), show the search that found nothing, or adopt what it found.
 5. **Star-sorted search settles existence.** Awesome lists are long-tail discovery; they miss major repos.
+
+Adoption over argument, the failure this skill exists for:
+
+| wrong | right |
+|---|---|
+| "this repo's approach is well reasoned" (1 star, README written by an agent) | star-sorted search on the category finds `mattpocock/skills` at 241k stars; cite it |
 
 ## Order of search
 
@@ -53,4 +59,8 @@ All in `${CLAUDE_SKILL_DIR}/scripts/`; each prints usage when run bare.
 
 ## Reporting
 
+Applies whenever evidence is cited, including evidence remembered from an earlier turn or from training: say where it came from and how old it is.
+
 Table first: source, type, adoption count, date, one-line takeaway. Then proven by humans versus merely plausible. Say plainly when evidence is thin.
+
+For a build decision: the top existing options with counts and push dates, then one line: adopt X, or build because of the named gap.
