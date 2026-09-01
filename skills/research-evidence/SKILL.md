@@ -1,7 +1,7 @@
 ---
 name: research-evidence
 description: Research what people actually use, ranked by recent adoption with counts and dates. Use when asked what people use, whether anyone has solved something, or whether something is standard; before building something many people would also need; and before saying that nothing exists.
-allowed-tools: Bash(${CLAUDE_SKILL_DIR}/scripts/*)
+allowed-tools: Bash(scripts/*)
 ---
 
 # Research with human evidence
@@ -38,7 +38,7 @@ Search the topic, not the framing: counting repos that use one label measures th
 
 ## Scripts
 
-All in `${CLAUDE_SKILL_DIR}/scripts/`; each prints usage when run bare.
+All in `scripts/`; each prints usage when run bare.
 
 | Script | Does |
 |---|---|
