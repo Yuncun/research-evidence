@@ -7,7 +7,7 @@ one request and no HTML parsing. Dates are when the route was last verified.
 |---|---|---|---|
 | GitHub | `gh` CLI (official) | `gh auth login` | Code search: use the `filename:` qualifier; `path:` returns 0 on the legacy endpoint (2026-08-28) |
 | Hacker News | `hn.algolia.com/api/v1` (HN's official search API) | none | `numericFilters` for points and date; `/items/<id>` returns the full tree |
-| Reddit | `arctic-shift.photon-reddit.com` (community archive) | none, but needs a browser User-Agent | reddit.com blocks unauthenticated clients (`.json`, RSS, self-serve OAuth all closed as of 2026-07). Archive `score` is frozen at post time; `num_comments` is the usable signal. `title=` search is fast; `query=` full-text often times out. Returns `{"data":null,"error":"Timeout"}` under load |
+| Reddit | `arctic-shift.photon-reddit.com` (community archive) | none, but needs a browser User-Agent | reddit.com blocks unauthenticated clients (`.json`, RSS, self-serve OAuth all closed as of 2026-07). Archive `score` is frozen at post time; `num_comments` is the usable signal. `title=` search is fast; `query=` full-text often times out. Returns HTTP 200 with `{"data":null,"error":"Timeout. Maybe slow down a bit"}` under load, so `curl --retry` never fires; `scripts/arctic-fetch.sh` retries on that body (3s, 8s, 15s) and caches successes for an hour under `$TMPDIR/research-evidence-cache` |
 | X | `api.fxtwitter.com` (public FixTweet API) | none | Reads one post or profile, including long-form X articles. No search: discover posts with a web search using `site:x.com`. Nitter and xcancel search return empty pages |
 
 ## Alternatives checked (2026-08-28)
