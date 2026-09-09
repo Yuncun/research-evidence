@@ -1,7 +1,26 @@
 # Access notes
 
-How each source is reached, and why. Every script calls a published API with
-one request and no HTML parsing. Dates are when the route was last verified.
+Historical access routes and optional helper scripts. Dates below are when a
+route was last verified, not a guarantee that it works now.
+
+## Helper reliability
+
+These adapters are not the skill's required execution path. Prefer available
+search/browser tools and official `gh` commands.
+
+The current helpers have known failure-reporting gaps:
+
+- `hn.sh`, `reddit.sh`, `reddit-thread.sh`, and `x.sh` catch JSON errors and
+  replace them with empty results or placeholder records.
+- Most `curl` calls do not fail on HTTP error status.
+- `gh-links.sh` replaces failed star-count lookups with zero.
+- `agents-md.sh` suppresses request errors, making missing files difficult to
+  distinguish from authentication or service failures.
+
+An empty response from these helpers is not a valid negative research result.
+Inspect the original service response or use another available access route.
+These limitations have been identified by source inspection, not repaired or
+covered by automated script tests in this revision.
 
 | Source | Route | Auth | Notes |
 |---|---|---|---|

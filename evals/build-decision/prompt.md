@@ -5,4 +5,4 @@ max_turns: 30
 timeout_seconds: 900
 allowed_tools: ["Bash", "WebSearch", "WebFetch", "Skill", "Read"]
 ---
-I want a ComfyUI workflow that takes a first frame and a last frame and generates the in-between video with Wan 2.2. Wire up the graph for me.
+Should I build a custom video-generation pipeline, or adopt an existing ComfyUI workflow? I need first-frame and last-frame conditioning with Wan 2.2. Compare maintained options before recommending an approach.

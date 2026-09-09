@@ -1,8 +1,10 @@
 # research-evidence
 
-A Claude Code / agent skill for answering "what do people actually use for X?" with human evidence: recent threads, issues, stars, and dates, not the model's memory.
+A Claude Code / agent skill for prior-art and build-versus-adopt decisions, and for questions about adoption or effectiveness.
 
-It adds to ordinary web search rather than replacing it. Sources are ranked by visible human adoption (points, comments, reactions, stars, push dates), every count is cited, and prior art is checked before anything gets hand-rolled.
+It compares existing options using primary sources, dated usage, and maintenance evidence. Popularity helps discover candidates; it does not prove that an approach works better, particularly for a specific model.
+
+The identifier remains `research-evidence`. It is not a prerequisite for every tooling change or agent-related question. Documentation lookup, local-code explanation, troubleshooting, and implementation of a settled choice do not trigger an adoption study.
 
 ## Install
 
@@ -29,14 +31,14 @@ skills/research-evidence/
 evals/              claude plugin eval cases
 ```
 
-Scripts need `curl`, `python3`, and `gh` (logged in). Reddit is read through the Arctic Shift archive; X through fxtwitter; HN through Algolia. Nothing needs a paid key.
+Prefer available search/browser tools and the official `gh` CLI. The legacy scripts are optional adapters needing `curl`, `python3`, and `gh` (logged in). They have known failure-reporting gaps; see [access notes](skills/research-evidence/references/access.md). Their empty output must not be treated as evidence that no alternatives exist.
 
 ## It's working if
 
-- Every source carries a date, and a count where one exists; vendor docs count as a source with no count.
-- A decision to build is preceded by a table of what already exists.
-- "No standard exists" or "only X has this" comes with the search that looked.
-- Evidence quoted from memory or an earlier turn says so, with its age.
+- Build-versus-adopt questions receive a comparison of relevant existing options.
+- Documentation, debugging, and settled implementation requests stay direct.
+- Adoption counts are dated and cited where they help; effectiveness claims need direct evidence.
+- Thin evidence or failed source access is reported as a limitation, not proof of absence.
 
 ## Evals
 
