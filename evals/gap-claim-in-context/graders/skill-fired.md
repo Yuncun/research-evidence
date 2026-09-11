@@ -1,6 +1,6 @@
 ---
 type: tool_used
 tool: Skill
-input_match: '"skill"\s*:\s*"(?:[\w-]+:)?research-evidence"'
+input_match: '"skill"\s*:\s*"(?:[\w-]+:)?prior-art"'
 ---
-The research-evidence skill should fire on this prompt.
+The prior-art skill should fire for the cross-tool steering-file assessment in question 3, not for the documentation explanations in questions 1 and 2. It must not reopen the user's chosen .harness/ organization.

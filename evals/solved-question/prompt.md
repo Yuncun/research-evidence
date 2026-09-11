@@ -5,4 +5,4 @@ max_turns: 25
 timeout_seconds: 600
 allowed_tools: ["Bash", "WebSearch", "WebFetch", "Skill", "Read"]
 ---
-Has anyone solved the problem of coding agents leaving comments in code that narrate the bug they were fixing, instead of comments that make sense to the next reader? Is there a canonical practice?
+Has anyone solved the problem of coding agents leaving comments in code that narrate the bug they were fixing, instead of comments that make sense to the next reader? Is there a canonical practice? Before we add a custom agent skill or review hook, compare existing approaches for our workflow.

@@ -1,6 +1,6 @@
 ---
 type: tool_used
 tool: Skill
-input_match: '"skill"\s*:\s*"(?:[\w-]+:)?research-evidence"'
+input_match: '"skill"\s*:\s*"(?:[\w-]+:)?prior-art"'
 ---
-An explicit adoption and effectiveness question should trigger research.
+An explicit technical adoption and effectiveness question should trigger prior-art.

@@ -1,5 +1,5 @@
 ---
 type: llm
-criteria: "Does the answer cite star counts or other adoption numbers and dates for each option it names, and rank by them rather than by how well the README argues?"
+criteria: "Does the answer compare TDD options by fit, enforcement mechanism, maintenance, and dated primary evidence of human use, explicitly identifying missing evidence? Neither popularity nor persuasive README claims should determine the winner. General adoption must be distinguished from measured effectiveness on a particular coding model."
 ---
-Adoption over argument.
+Evidence over marketing; fit over popularity.
