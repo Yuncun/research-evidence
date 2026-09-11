@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {"id": "new-ci-dashboard", "prompt": "Build a dashboard that collects GitHub Actions durations and shows our slowest jobs. Start with a Python service.", "invoke": true},
+    {"id": "new-skill-runner", "prompt": "Write our own runner for comparing agent skill versions. We need repeatable cases and a reviewable report.", "invoke": true},
+    {"id": "new-hook", "prompt": "Add a shared agent hook that prevents anyone from committing secrets. We have not chosen how it should work yet.", "invoke": true},
+    {"id": "new-lib", "prompt": "We need Kotlin date-time handling across time zones. Should we write utilities or take a dependency?", "invoke": true},
+    {"id": "adoption", "prompt": "Is this agent workflow still maintained and used by people on current models, or is it obsolete?", "invoke": true},
+    {"id": "provenance", "prompt": "Who originally wrote this developer skill, how old is it, and is it widely adopted?", "invoke": true},
+    {"id": "built-in", "prompt": "Create a tool that alerts us when a GitHub Actions job fails. We use GitHub already but have not checked its notification features.", "invoke": true},
+    {"id": "small-new-script", "prompt": "Write a reusable command that deletes branches whose PRs have merged. Can probably fit it in twenty lines.", "invoke": true},
+    {"id": "settled-change", "prompt": "Add JSON output to our existing log viewer. Keep the selected implementation.", "invoke": false},
+    {"id": "settled-adopt", "prompt": "We compared the options yesterday and chose Renovate. Add its approved configuration now.", "invoke": false},
+    {"id": "local-explanation", "prompt": "Read this installed agent skill and explain what its options do. I am not asking whether we should replace it.", "invoke": false},
+    {"id": "debugging", "prompt": "Our existing Python script fails with KeyError on an empty response. Find and fix the bug.", "invoke": false},
+    {"id": "product-feature", "prompt": "Add a favorite button to the photo detail screen using the existing repository and UI components.", "invoke": false},
+    {"id": "algorithm-question", "prompt": "Explain the difference between breadth-first and depth-first search.", "invoke": false},
+    {"id": "tolstoy", "prompt": "What should I read after Anna Karenina?", "invoke": false},
+    {"id": "literary-adoption", "prompt": "Which Tolstoy translation do readers prefer today? Compare recent reader reception and popularity.", "invoke": false},
+    {"id": "ai-news", "prompt": "What changed in the latest Astra release this week? Check the current official release notes.", "invoke": false},
+    {"id": "medical-effectiveness", "prompt": "Is intermittent fasting still popular, and what does recent evidence say about its effectiveness?", "invoke": false},
+    {"id": "travel-alternatives", "prompt": "Compare train and flight options between London and Paris using current prices.", "invoke": false},
+    {"id": "model-effectiveness", "prompt": "Does this coding-agent skill improve Astra results, or are people just sharing it because it has lots of stars?", "invoke": true}
+  ]
+}

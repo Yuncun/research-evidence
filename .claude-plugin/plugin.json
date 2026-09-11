@@ -1,6 +1,6 @@
 {
   "name": "research-evidence",
-  "description": "Research with human evidence: ranks sources by recent human adoption and bundles scripts for HN, Reddit, X, and GitHub.",
-  "version": "0.1.0",
+  "description": "The prior-art skill: check existing software, built-in capabilities, maintenance, and human adoption before introducing new engineering tools.",
+  "version": "0.2.0",
   "author": { "name": "Eric Shen" }
 }

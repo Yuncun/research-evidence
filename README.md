@@ -1,48 +1,42 @@
-# research-evidence
+# prior-art
 
-A Claude Code / agent skill for prior-art and build-versus-adopt decisions, and for questions about adoption or effectiveness.
+A skill for checking existing software and built-in capabilities before introducing a new developer tool, dependency, automation, agent skill, or engineering workflow.
 
-It compares existing options using primary sources, dated usage, and maintenance evidence. Popularity helps discover candidates; it does not prove that an approach works better, particularly for a specific model.
+It triggers automatically on new tooling requests, including "build a custom tool," and on technical alternatives, provenance, maintenance, adoption, or effectiveness questions. It stays out of routine edits, debugging, explanations, settled implementation, general news, and nontechnical questions.
 
-The identifier remains `research-evidence`. It is not a prerequisite for every tooling change or agent-related question. Documentation lookup, local-code explanation, troubleshooting, and implementation of a settled choice do not trigger an adoption study.
+The goal is an informed build-versus-adopt decision, not a ban on custom code. A small script may fit better than a large dependency. Dated primary sources and first-hand usage matter; stars alone do not establish effectiveness.
 
 ## Install
 
-Claude Code, as a plugin:
+For Copilot, Claude Code, and other supported agents:
 
-```
-/plugin marketplace add Yuncun/yuncun-marketplace
-/plugin install research-evidence@yuncun
-```
-
-Any agent that reads `SKILL.md` (Copilot, Codex, Cursor, ...), via [skills.sh](https://skills.sh):
-
-```
-npx skills add Yuncun/research-evidence
+```bash
+npx skills add Yuncun/research-evidence --skill prior-art
 ```
 
-## What's inside
+While this replacement is awaiting merge, install the review branch:
 
-```
-skills/research-evidence/
-  SKILL.md          rules, search order, reporting format
-  scripts/          hn, reddit, x, github helpers (bash + python3, no keys)
-  references/       access routes per source, dated starting points
-evals/              claude plugin eval cases
+```bash
+npx skills add https://github.com/Yuncun/research-evidence/tree/fix/scope-prior-art-research --skill prior-art
 ```
 
-Prefer available search/browser tools and the official `gh` CLI. The legacy scripts are optional adapters needing `curl`, `python3`, and `gh` (logged in). They have known failure-reporting gaps; see [access notes](skills/research-evidence/references/access.md). Their empty output must not be treated as evidence that no alternatives exist.
+## Migration from research-evidence
 
-## It's working if
+The skill identifier is now `prior-art`. Remove the old installed `research-evidence` skill so both descriptions cannot trigger. Enable `prior-art` in your host if needed; disabling the old name does not disable the replacement.
 
-- Build-versus-adopt questions receive a comparison of relevant existing options.
-- Documentation, debugging, and settled implementation requests stay direct.
-- Adoption counts are dated and cited where they help; effectiveness claims need direct evidence.
-- Thin evidence or failed source access is reported as a limitation, not proof of absence.
+The GitHub repository and Claude plugin package keep the `research-evidence` name for existing links and subscriptions. The plugin exports the new `prior-art` skill. Marketplace users receive it when this revision is released; the review-branch install above is available beforehand.
+
+The replacement contains one `SKILL.md` and uses the agent's existing search tools. The old source-specific helper scripts are no longer distributed; their last version remains in Git history.
+
+No always-loaded instruction is needed to force invocation. The skill's description owns its trigger when the host enables it.
 
 ## Evals
 
-`evals/` holds cases in the `claude plugin eval` layout. Until that command is available, run each `prompt.md` in a fresh agent with and without the skill and grade against `graders/`. Cases are drawn from real turns where the answer was wrong; `gap-claim-in-context` is the multi-part turn that first failed.
+`evals/routing.json` contains positive and negative discovery cases. Give a fresh agent only the candidate description and each case's prompt; compare its invocation decision with `invoke`. Repeat with the previous description and vary the prompts. These are routing simulations, not proof of real tool invocation.
+
+`evals/decision-fixture.md` supplies fictional primary evidence for an offline recommendation. Run it with and without the skill: choose the fitting built-in capability, distinguish popularity from model effectiveness, and preserve the failed-search limitation. A passing control means this fixture shows no added reasoning benefit from the skill.
+
+The Markdown cases under `evals/` retain the original `claude plugin eval` layout. Run each `prompt.md` in a fresh agent and grade against its `graders/`. Also inspect actual skill calls in the target host: a correct written classification does not prove the host discovers and invokes the installed skill.
 
 ## License
 
