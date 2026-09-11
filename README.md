@@ -14,10 +14,10 @@ For Copilot, Claude Code, and other supported agents:
 npx skills add Yuncun/research-evidence --skill prior-art
 ```
 
-While this replacement is awaiting merge, install the review branch:
+While this replacement is awaiting merge, Copilot can install the single file from the review branch:
 
 ```bash
-npx skills add https://github.com/Yuncun/research-evidence/tree/fix/scope-prior-art-research --skill prior-art
+copilot skill add https://raw.githubusercontent.com/Yuncun/research-evidence/fix/scope-prior-art-research/skills/prior-art/SKILL.md
 ```
 
 ## Migration from research-evidence
