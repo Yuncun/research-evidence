@@ -1,8 +1,8 @@
 # prior-art
 
-Skill to search for online communities (reddit, hn, etc.) to look for evidence of human adoption and recency when looking for a technical solution to a problem. 
+Look for existing solutions before writing your own tool. 
 
- This skill supplements the existing agent search, and runs an extra pass to look at a bunch of online communites to look for humans having the same issue or question that you have, so that you dont catastrophically miss an obvious solution because your agent has adhd and overthoguht the hell out of a simple question. 
+This skill heavily favors evidence of human adoption + recency, and tries to look for people who have had the same issue or question in online communities like reddit, twitter etc. so that you dont catastrophically miss an obvious solution because your agent has adhd and overthought the hell out of a simple question. 
 
 ## Install
 
