@@ -6,4 +6,4 @@ min: 0
 max: 0
 arm: both
 ---
-Off-topic prompt: the skill must stay quiet.
+Explaining local skill code is direct source reading, not a prior-art decision.

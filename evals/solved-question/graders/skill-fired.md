@@ -1,6 +1,6 @@
 ---
 type: tool_used
 tool: Skill
-input_match: '"skill"\s*:\s*"(?:[\w-]+:)?research-evidence"'
+input_match: '"skill"\s*:\s*"(?:[\w-]+:)?prior-art"'
 ---
-The research-evidence skill should fire on this prompt.
+The prior-art skill should fire on this prompt.

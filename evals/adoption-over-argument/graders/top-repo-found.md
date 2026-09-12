@@ -1,5 +1,5 @@
 ---
-type: regex
-pattern: 'mattpocock/skills|superpowers'
+type: llm
+criteria: "Does the answer identify relevant existing TDD skills, hooks, or workflows and justify its recommendation using verified behavior and fit for enforcing a failing test first? It should distinguish advisory instructions from enforced checks and acknowledge evidence limits. No named repository or star-count leader is a required winner."
 ---
-The two most-adopted skill collections both ship a TDD skill (241k and 279k stars). A well-argued 1-star repo instead is the failure.
+Evaluate the recommendation against the task, not a hardcoded popularity ranking.

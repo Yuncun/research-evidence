@@ -6,4 +6,4 @@ min: 0
 max: 0
 arm: both
 ---
-Off-topic prompt: the skill must stay quiet.
+Implementing a settled tooling choice must not restart an adoption study.

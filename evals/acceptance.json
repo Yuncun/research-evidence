@@ -1,0 +1,208 @@
+{
+  "date": "2026-09-10",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "medium",
+  "copilot_version": "1.0.83",
+  "skill_sha256": "f22035236ac76d7e7f23c9e1b6db40ca2264290802dc432ddea8d22e503c574b",
+  "routing": [
+    {
+      "run": "baseline-1-6c1520fe",
+      "cases": 20,
+      "failures": [
+        "new-ci-dashboard",
+        "new-skill-runner",
+        "new-hook",
+        "built-in",
+        "small-new-script",
+        "literary-adoption",
+        "medical-effectiveness",
+        "travel-alternatives"
+      ]
+    },
+    {
+      "run": "baseline-2-59d8f027",
+      "cases": 20,
+      "failures": [
+        "new-ci-dashboard",
+        "new-skill-runner",
+        "new-hook",
+        "built-in",
+        "small-new-script",
+        "literary-adoption",
+        "medical-effectiveness",
+        "travel-alternatives"
+      ]
+    },
+    {
+      "run": "baseline-3-40f78d30",
+      "cases": 20,
+      "failures": [
+        "new-ci-dashboard",
+        "new-skill-runner",
+        "new-hook",
+        "built-in",
+        "small-new-script",
+        "literary-adoption",
+        "medical-effectiveness",
+        "travel-alternatives"
+      ]
+    },
+    {
+      "run": "baseline-4-9d93ec51",
+      "cases": 20,
+      "failures": [
+        "new-ci-dashboard",
+        "new-skill-runner",
+        "new-hook",
+        "built-in",
+        "small-new-script",
+        "literary-adoption",
+        "medical-effectiveness",
+        "travel-alternatives"
+      ]
+    },
+    {
+      "run": "baseline-5-27261487",
+      "cases": 20,
+      "failures": [
+        "new-ci-dashboard",
+        "new-skill-runner",
+        "new-hook",
+        "built-in",
+        "small-new-script",
+        "literary-adoption",
+        "medical-effectiveness",
+        "travel-alternatives"
+      ]
+    },
+    {
+      "run": "candidate-1-6fcd807b",
+      "cases": 20,
+      "failures": []
+    },
+    {
+      "run": "candidate-2-be7fd39a",
+      "cases": 20,
+      "failures": []
+    },
+    {
+      "run": "candidate-3-a918271a",
+      "cases": 20,
+      "failures": []
+    },
+    {
+      "run": "candidate-4-f12537e8",
+      "cases": 20,
+      "failures": []
+    },
+    {
+      "run": "candidate-5-1268b8e6",
+      "cases": 20,
+      "failures": []
+    }
+  ],
+  "native": [
+    {
+      "run": "native-compaction-docs-2f64a418",
+      "expected_invocation": false,
+      "skill_calls": [],
+      "answer": "Automatic context compaction lets a coding agent keep working when its conversation approaches the model\u2019s context limit. It replaces older messages and verbose tool output with a shorter summary of essentials: the task, decisions, code changes, and remaining work.\n\nThis frees room for new information without changing your files. The tradeoff is that summaries can lose details, so the agent may need to reread source files or revisit earlier evidence. It\u2019s a condensed working memory, not an increase in the model\u2019s context capacity."
+    },
+    {
+      "run": "native-literary-adoption-fb07c90d",
+      "expected_invocation": false,
+      "skill_calls": [],
+      "answer": "**I wouldn\u2019t name a \u201ccurrent readers\u2019 favorite\u201d without recent evidence\u2014and I\u2019d assess *War and Peace* and *Anna Karenina* separately.** A translator\u2019s reception can differ between books. Assuming you mean English translations, here\u2019s how I would find out, without browsing this turn:\n\n1. **Identify the editions being compared.** For *War and Peace*, candidates would include the Maudes, Anthony Briggs, and Richard Pevear/Larissa Volokhonsky; for *Anna Karenina*, Constance Garnett, Pevear/Volokhonsky, Rosamund Bartlett, and Marian Schwartz. These are starting candidates, not a popularity ranking.\n\n2. **Collect recent reader responses.** Focus on the last two or three years of Goodreads and StoryGraph reviews, retailer reviews, Reddit discussions, and reading-group conversations. Include both favorable and unfavorable searches, and distinguish readers who finished a translation from people repeating recommendations.\n\n3. **Make sure the feedback concerns the translation.** Book platforms often combine editions, so an overall star rating may tell us nothing about the translator. Give greatest weight to reviews that identify the translator, discuss the prose, or directly compare translations. Track recurring judgments: readability, dialogue, awkwardness, humor, and perceived fidelity\u2014not just \u201cTolstoy is brilliant.\u201d\n\n4. **Measure popularity separately from preference.** Edition-specific sales or borrowing figures, where available, would be stronger popularity evidence than recommendation counts. Recent review volume and discussion frequency are useful proxies, but availability, price, public-domain status, and marketing can inflate them.\n\n**The result should distinguish \u201cmost widely read,\u201d \u201cmost recommended,\u201d and \u201cpreferred by readers who compared versions.\u201d** I\u2019d report agreement and disagreement across sources rather than manufacture one winner from pooled ratings. Literary critics could supply context, but reader evidence would drive the conclusion."
+    },
+    {
+      "run": "native-new-hook-c36f420d",
+      "expected_invocation": true,
+      "skill_calls": [
+        "prior-art"
+      ],
+      "answer": "**Adopt an existing secret scanner behind a thin shared pre-push hook rather than build a credential detector.** Gitleaks is a provisional starting candidate; the implementation choice should remain open until its current capabilities and maintenance are verified.\n\nThis is an offline outline, not a completed alternatives assessment. No target repositories were available to inspect, and the supplied local evidence concerns unrelated CI notifications. As of September 10, 2026, I cannot substantiate current releases, maintenance, or adoption here. No files were changed.\n\n### Build-versus-adopt approach\n\nCompare **Gitleaks** and **TruffleHog** using their official documentation and repositories when access is available:\n- [Gitleaks](https://github.com/gitleaks/gitleaks): evaluate offline Git-history scanning, custom rules, redaction, and machine-readable results.\n- [TruffleHog](https://github.com/trufflesecurity/trufflehog): evaluate equivalent coverage and explicitly offline operation; credential verification must not contact providers without approval.\n\nFirst inspect existing repository scanners, hook managers, and Git-host push protection. Reuse them where they satisfy the requirements. Git supplies the hook mechanism, not credential detection. Avoid introducing another hook manager unless distribution and compatibility require it.\n\n### Proposed hook design\n\n1. **Define coverage.** Scan every commit being introduced by every pushed ref\u2014not merely the working tree or final diff. Include credentials added and later removed within the pushed history. Handle new branches, force-pushes, tags, deletions, and multiple refs explicitly. Incomplete history must produce an actionable error, not a clean result.\n\n2. **Keep detection offline and reproducible.** Pin the scanner version and share versioned rules across repositories. Do not download executables during a push. Block on findings, missing dependencies, or scanner failures; redact credential values in all output.\n\n3. **Distribute centrally.** Use the existing hook framework if present; otherwise evaluate a managed Git hooks directory via `core.hooksPath`. Preserve existing hooks rather than overwrite them, and document installation and upgrades.\n\n4. **Control exceptions.** Require narrow, reviewed suppressions with ownership and expiry. Perform an initial history scan separately; avoid blanket baselines that hide newly introduced secrets.\n\n5. **Add enforcement beyond developer machines.** Local hooks are bypassable. Pair them with available server-side push protection; CI scanning provides additional detection but cannot prevent the initial upload.\n\nBefore rollout, exercise these cases with synthetic credentials in disposable repositories. Document remediation: revoke or rotate exposed credentials first, then address repository history as needed."
+    },
+    {
+      "run": "native-new-skill-bb693553",
+      "expected_invocation": true,
+      "skill_calls": [
+        "prior-art"
+      ],
+      "answer": "**Start with a reuse-versus-build assessment, not a new converter.** The local project skill directory contains only `prior-art`; that does not establish whether suitable skills or platform features exist elsewhere. With live web access unavailable, any implementation choice remains provisional.\n\n1. **Define the conversion contract:** `.docx` versus legacy `.doc`, layout fidelity, fonts, batch processing, output locations, supported operating systems, and whether documents must remain local.\n2. **Inventory existing capabilities:** inspect available skill catalogs, platform documentation, and installed conversion tools using read-only access. Prefer an existing document skill or native PDF export when it meets the contract.\n3. **Compare plausible alternatives:** evaluate Microsoft Word export, LibreOffice headless conversion, and an existing conversion skill. These are candidates\u2014not verified findings. When access is available, consult official documentation and repositories for dated maintenance, licensing, and real-use evidence.\n4. **Choose the smallest justified solution:** reuse a suitable skill; otherwise create a thin skill around a proven converter. Build custom conversion logic only if a concrete requirement rules out existing options.\n5. **Implement in a later writable turn:** document prerequisites, invocation, privacy constraints, overwrite behavior, and explicit failure handling. Evaluate representative documents for layout, tables, images, fonts, and usable PDFs.\n\nNo files were changed; no converter or skill has been selected."
+    },
+    {
+      "run": "native-new-tool-065432b8",
+      "expected_invocation": true,
+      "skill_calls": [
+        "prior-art"
+      ],
+      "answer": "**Don\u2019t build GateWatch now; use ForgeCloud\u2019s built-in notifications.** Its official manual, updated **2026-09-08**, covers default-branch filtering, the existing chat integration, and workspace permissions without a custom service\u2014the strongest fit for this single-repository need.\n\nImplementation approach:\n1. Configure failure-only notifications for the repository\u2019s default branch.\n2. Connect the existing team chat destination using workspace permissions.\n3. Document the configuration as the reusable team pattern; add no CLI, dependency, or hosted component.\n\nDo not copy TrendWatch\u2019s architecture. The **2026-09-10** repository evidence shows it requires a prohibited external relay, last released **2024-05-10**, and has been unmaintained since **2025-02-01**. Its 80,000 stars establish neither effectiveness nor model suitability.\n\nQuietWatch is a credible fallback: released **2026-09-01**, with two named teams reporting use across hundreds of repositories. However, its self-hosted server adds unnecessary operational work here; no Astra-specific evidence is supplied.\n\nThese supplied fictional sources establish documented fit, not demonstrated operation in your workspace. The search provider\u2019s HTTP 503 leaves additional alternatives unknown\u2014not nonexistent. This inspection remained read-only."
+    },
+    {
+      "run": "native-routine-edit-dbe1d91f",
+      "expected_invocation": false,
+      "skill_calls": [],
+      "answer": "Add `--json` to the existing argparse interface and keep the current log viewer and default output unchanged.\n\n1. Register the flag: `parser.add_argument(\"--json\", action=\"store_true\", help=\"Output logs as JSON\")`.\n2. Keep log retrieval, filtering, and sorting shared; branch only at the output step using `args.json`.\n3. Serialize structured log records with `json.dumps()` rather than parsing rendered text. Define stable fields and explicit timestamp formatting.\n4. Choose a documented format: a JSON array for finite results, or one JSON object per line (JSON Lines) for streaming. Disable colors and decorative output in JSON mode; send diagnostics to stderr.\n5. Cover flag parsing, valid JSON output, empty results, escaping, and unchanged default output in the existing tests.\n\nNo files changed."
+    },
+    {
+      "run": "native-settled-choice-45757ba1",
+      "expected_invocation": false,
+      "skill_calls": [],
+      "answer": "Configure ForgeCloud\u2019s built-in notifications as follows:\n\n1. Scope notifications to the one repository in use.\n2. Enable CI failure notifications only.\n3. Set the branch filter to that repository\u2019s default branch.\n4. Connect notifications to the existing team chat service using ForgeCloud\u2019s built-in chat integration.\n5. Use the workspace\u2019s existing permissions; no custom service or new externally hosted service is needed.\n\nThe official manual, updated September 8, 2026, establishes these capabilities but does not provide exact UI paths, field names, or chat authorization steps in the supplied evidence. No GateWatch CLI build is needed for the chosen setup."
+    },
+    {
+      "run": "native-tolstoy-f9c97557",
+      "expected_invocation": false,
+      "skill_calls": [],
+      "answer": "**War and Peace.** It has the same psychological depth and richly tangled relationships as *Anna Karenina*, on a grander scale. Don\u2019t let its size intimidate you\u2014the characters make it surprisingly absorbing."
+    }
+  ],
+  "fixtures": [
+    {
+      "run": "behavior-1-0e182280",
+      "answer": "**Use ForgeCloud\u2019s built-in notifications; don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** ForgeCloud\u2019s official manual, updated **2026-09-08**, documents failure notifications with branch filters and your existing chat integration, using existing workspace permissions without a custom service [A]. Configure the filter for the repository\u2019s default branch. This meets the stated need without adding code or infrastructure to maintain.\n\nTrendWatch requires an external hosted relay, violating your constraint. As observed **2026-09-10**, it has been unmaintained since **2025-02-01**, with its last release on **2024-05-10** [B]. Its 80,000 stars establish popularity\u2014not active use or effectiveness\u2014and its \u201cbest workflow\u201d claim supplies no model evaluation.\n\nQuietWatch has stronger maintenance and adoption evidence: a **2026-09-01** release and reports from two named teams using it across hundreds of repositories [C]. But its required self-hosted server adds unnecessary operational work for one repository; there is no Astra-specific evidence.\n\nThe failed search (**HTTP 503**) leaves additional alternatives unexplored, not nonexistent [D]. ForgeCloud\u2019s documented fit is sufficient for this decision; actual delivery in your workspace remains unverified."
+    },
+    {
+      "run": "behavior-2-b54121a6",
+      "answer": "**Use ForgeCloud\u2019s built-in notifications; don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** Configure failure-only notifications for the repository\u2019s default branch, routed to your existing team chat.\n\nForgeCloud\u2019s official manual, updated **2026-09-08**, documents branch filters, your chat integration, and existing workspace permissions, with no custom service required (A). That meets the stated requirements without another dependency or tool to maintain.\n\nTrendWatch requires an external hosted relay, violating your constraint. As observed **2026-09-10**, it has been unmaintained since **2025-02-01**, with its last release on **2024-05-10** (B). Its 80,000 stars establish popularity\u2014not active use or effectiveness\u2014and its \u201cbest workflow\u201d claim has no model evaluation behind it.\n\nQuietWatch\u2019s **2026-09-01** release and two named teams\u2019 usage reports support recent maintenance and adoption at scale (C). But its self-hosted server adds unnecessary operational work for one repository; neither those reports nor its stars establish Astra-specific effectiveness.\n\nThe additional-options search failed with HTTP 503 (D), so this is not an exhaustive survey. That gap does not prevent choosing the documented built-in fit."
+    },
+    {
+      "run": "behavior-3-9b9e7842",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture. Use ForgeCloud\u2019s built-in failure notifications**, filtered to the default branch and connected to your existing team chat. Its official manual, updated **2026-09-08**, documents those capabilities using existing workspace permissions, with no custom service. That meets the stated one-repository need without adding code or infrastructure to maintain.\n\nTrendWatch conflicts with your **no new externally hosted service** requirement because it needs a hosted relay. As observed **2026-09-10**, its last release was **2024-05-10**, and it has been unmaintained since **2025-02-01**. Its 80,000 stars don\u2019t establish active use or effectiveness; its \u201cbest workflow\u201d claim has no model evaluation behind it.\n\nQuietWatch is a credible fallback: a **2026-09-01** release and two named teams\u2019 reports support recent maintenance and real multi-repository use. But its required self-hosted server adds unnecessary operating cost here; there\u2019s no Astra-specific evidence.\n\nThe additional search failed with HTTP 503, so this is **not an exhaustive alternatives review**. The supplied evidence nevertheless supports ForgeCloud; it establishes documented fit, not verified behavior in your workspace."
+    },
+    {
+      "run": "behavior-4-d57c9333",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture. Use ForgeCloud\u2019s built-in failure notifications:** its official manual, updated **2026-09-08**, documents branch filters, your existing chat integration, and workspace permissions without a custom service [A]. Configure notifications for failures on the default branch. This meets the stated one-repository need without adding code or infrastructure to maintain.\n\n- **TrendWatch:** Requires an external hosted relay, violating your constraint. As observed **2026-09-10**, it has been unmaintained since **2025-02-01**, with its last release on **2024-05-10**. Its 80,000 stars and \u201cbest workflow\u201d claim establish neither active use nor model effectiveness [B].\n- **QuietWatch:** Its **2026-09-01** release and two named teams\u2019 usage reports support recent maintenance activity and real adoption, but its required self-hosted server adds unnecessary overhead here. Neither that adoption nor TrendWatch\u2019s marketing establishes effectiveness on Astra [C].\n\n**Evidence gap:** The additional-options search failed with HTTP 503, so this is not an exhaustive comparison [D]. That does not undermine the documented built-in fit; there is no demonstrated unmet requirement justifying custom tooling."
+    },
+    {
+      "run": "behavior-5-d7175194",
+      "answer": "**Use ForgeCloud\u2019s built-in notifications; don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** ForgeCloud\u2019s official manual (updated **2026-09-08**, A) documents branch filters, your existing chat integration, and workspace permissions without a custom service. That meets the stated need without another dependency or service to maintain. Configure failure notifications for the repository\u2019s default branch.\n\nThe alternatives don\u2019t justify additional infrastructure:\n- **TrendWatch:** Requires an external hosted relay, violating your constraint. As observed **2026-09-10**, its last release was **2024-05-10**, and it has been unmaintained since **2025-02-01** (B). Its 80,000 stars establish popularity\u2014not active use, effectiveness, or its unsupported \u201cbest workflow\u201d claim.\n- **QuietWatch:** Its **2026-09-01** release and two named teams\u2019 usage reports support recent maintenance and real adoption (C), but its required self-hosted server adds operational overhead for one repository. Neither candidate supplies Astra-specific effectiveness evidence.\n\nThe supplied evidence establishes documented fit, not successful delivery in your workspace. The additional search failed with HTTP 503 (D), so this is not an exhaustive market comparison."
+    },
+    {
+      "run": "control-1-6af683b1",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture. Use ForgeCloud\u2019s built-in failure notifications.** Configure a default-branch-only filter and the existing team chat integration for the one repository.\n\nForgeCloud\u2019s official manual, updated September 8, directly supports those requirements: branch filtering, existing chat, existing workspace permissions, and no custom service (A). This is the strongest supplied evidence for the simplest fit\u2014not proof that your workspace is already configured correctly.\n\nTrendWatch\u2019s 80,000 stars don\u2019t establish suitability. Its required external hosted relay violates your constraint, and it has been unmaintained since February 2025. Its \u201cbest workflow for every AI team\u201d claim has no supporting model evaluation (B).\n\nQuietWatch\u2019s recent release and two named teams\u2019 reported large-scale use are useful signals, but don\u2019t establish fit for this task or Astra-specific effectiveness. Its self-hosted server adds operational work unnecessary for the stated requirements (C).\n\nThe failed search establishes no additional options\u2014not that none exist (D). The \u201c100-line Python job\u201d estimate is unsupported. Revisit a custom CLI only if a concrete requirement emerges that ForgeCloud cannot meet."
+    },
+    {
+      "run": "control-2-d4f76fa8",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** Configure ForgeCloud\u2019s built-in failure notifications for the repository\u2019s default branch and route them to your existing team chat. Its official manual, updated September 8, establishes support for those filters, the chat integration, and existing workspace permissions\u2014with no custom service needed. That meets the stated notification requirements without adding infrastructure.\n\nTrendWatch\u2019s 80,000 stars do not establish suitability. It is unmaintained and requires an external hosted relay, directly conflicting with your constraints. Its \u201cbest workflow for every AI team\u201d claim has no model evaluation behind it.\n\nQuietWatch has a recent release and reported adoption by two named teams at substantial scale. That supports considering it, but does not prove reliability or Astra-specific suitability. Its required self-hosted server adds operational work unnecessary for the current need.\n\nThe evidence does **not** establish that a custom CLI is necessary or production-ready in 100 lines. Nor is this an exhaustive comparison: the only additional search failed with HTTP 503. Revisit a build only if a concrete requirement exceeds ForgeCloud\u2019s documented capabilities."
+    },
+    {
+      "run": "control-3-6dcc8726",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** Configure ForgeCloud\u2019s built-in failure notifications for the repository\u2019s default branch and existing team chat.\n\nForgeCloud\u2019s official manual, updated September 8, documents branch filters, the existing chat integration, and reuse of workspace permissions without a custom service. That supports meeting the stated notification requirements with what you already pay for. It does not establish that your workspace is configured correctly; confirm the default-branch filter and notification delivery before relying on it.\n\nTrendWatch\u2019s 80,000 stars do not establish suitability. It is unmaintained, and its required external hosted relay violates your constraint. Its \u201cbest workflow for every AI team\u201d claim has no model-evaluation support.\n\nQuietWatch has a recent release and reported adoption by two named teams at substantial scale, but requires a self-hosted server\u2014unnecessary overhead for this one-repository need. Nothing supplied establishes Astra-specific suitability.\n\nThe failed search establishes only that discovery was incomplete, not that no alternatives exist. Reconsider a CLI only if a concrete unmet requirement emerges; the \u201c100-line\u201d estimate is unsubstantiated."
+    },
+    {
+      "run": "control-4-e4e85d2d",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** Configure ForgeCloud\u2019s built-in failure notifications for the repository\u2019s default branch and existing team chat. Its official manual, updated September 8, documents the required branch filtering, chat integration, and reuse of workspace permissions without a custom service. That is the strongest fit for your stated needs.\n\nThe evidence supports this decision, with limits:\n- **ForgeCloud:** The documented capabilities meet the requirements; actual configuration and delivery in your workspace remain unverified.\n- **TrendWatch:** 80,000 stars establish popularity, not suitability. It is unmaintained and requires an external hosted relay, violating your constraint. Its \u201cbest workflow for every AI team\u201d claim has no model evaluation behind it.\n- **QuietWatch:** A recent release and two named teams\u2019 large-scale usage are encouraging, but its self-hosted server adds operational work unnecessary for this documented use case. There is no Astra-specific evidence.\n- **Coverage:** The sole additional search failed with HTTP 503, so this is not an exhaustive comparison.\n\nRevisit a custom CLI only if a concrete unmet requirement emerges; the supplied evidence does not establish the 100-line estimate."
+    },
+    {
+      "run": "control-5-a15d7bfb",
+      "answer": "**Don\u2019t build GateWatch now or copy TrendWatch\u2019s architecture.** Configure ForgeCloud\u2019s built-in failure notifications for the repository\u2019s default branch and existing team chat. Its official manual, updated September 8, documents those capabilities, reuse of workspace permissions, and no custom service\u2014matching the stated requirements without new dependencies.\n\nTrendWatch\u2019s 80,000 stars do not establish suitability. It has been unmaintained since February 2025, and its required external hosted relay violates your constraint. Its \u201cbest workflow for every AI team\u201d claim has no model evaluation behind it.\n\nQuietWatch is recently released, with reported use by two named teams across hundreds of repositories. That supports considering it for larger deployments, but does not establish reliability, fit for this task, or Astra-specific benefits. Its required self-hosted server adds unnecessary operations for one repository.\n\nThe failed search establishes only that the provider returned HTTP 503\u2014not that no other options exist. The supplied evidence supports choosing ForgeCloud, but does not confirm your workspace configuration or actual delivery. Confirm default-branch failure delivery and non-default-branch exclusion during setup. Revisit custom code only if a concrete unmet requirement emerges."
+    }
+  ],
+  "limitations": [
+    "Routing results are classification simulations, five independent runs of 20 cases per description, not 100 independent sessions.",
+    "Native samples are fresh Copilot sessions with actual skill discovery and read-only tools; three positive and five negative requests, including held-out wording.",
+    "Decision fixtures use supplied fictional evidence. All five no-skill controls also chose the correct existing solution, so they establish no measured reasoning uplift.",
+    "No live web research quality benchmark or long-session reliability claim."
+  ]
+}

@@ -1,5 +1,5 @@
 ---
 type: llm
-criteria: "Before or instead of wiring a graph from scratch, does the answer name at least two existing shared workflows or repos for first-last-frame video with adoption numbers (stars, downloads, or civitai counts) and a date, and state whether to adopt one or build?"
+criteria: "Before or instead of wiring a graph from scratch, does the answer compare relevant existing workflows or repos against Wan 2.2 first-frame and last-frame conditioning, using dated primary evidence for capabilities and maintenance? It should cite evidence of human use or acknowledge its absence, and justify adopting, adapting, or building from fit and remaining gaps rather than popularity. No fixed number of options or adoption counts is required."
 ---
-Building is a claim that nothing fits; the search must be shown.
+Building requires a supported fit or cost rationale, not a claim that no alternatives exist.

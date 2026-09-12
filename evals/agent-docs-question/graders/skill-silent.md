@@ -6,4 +6,4 @@ min: 0
 max: 0
 arm: both
 ---
-Off-topic prompt: the skill must stay quiet.
+Documentation lookup is not an adoption or alternatives question, even when the product is an agent.
