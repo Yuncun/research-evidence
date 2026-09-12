@@ -14,17 +14,17 @@ For Copilot, Claude Code, and other supported agents:
 npx skills add Yuncun/prior-art --skill prior-art
 ```
 
-While this replacement is awaiting merge, Copilot can install the single file from the review branch:
+Copilot can also install the single file directly:
 
 ```bash
-copilot skill add https://raw.githubusercontent.com/Yuncun/prior-art/fix/scope-prior-art-research/skills/prior-art/SKILL.md
+copilot skill add https://raw.githubusercontent.com/Yuncun/prior-art/main/skills/prior-art/SKILL.md
 ```
 
 ## Migration from research-evidence
 
 The skill identifier is now `prior-art`. Remove the old installed `research-evidence` skill so both descriptions cannot trigger. Enable `prior-art` in your host if needed; disabling the old name does not disable the replacement.
 
-The GitHub repository is `Yuncun/prior-art`; GitHub redirects the former repository URL. The Claude plugin package retains the `research-evidence` identifier for the existing marketplace entry and exports the new `prior-art` skill. Marketplace users receive it when this revision is released; the review-branch install above is available beforehand.
+The GitHub repository is `Yuncun/prior-art`; GitHub redirects the former repository URL. The Claude plugin package retains the `research-evidence` identifier for the existing marketplace entry and exports the new `prior-art` skill.
 
 The replacement contains one `SKILL.md` and uses the agent's existing search tools. The old source-specific helper scripts are no longer distributed; their last version remains in Git history.
 
