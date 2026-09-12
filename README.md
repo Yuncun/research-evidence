@@ -1,8 +1,8 @@
 # prior-art
 
-Look for existing solutions before writing your own. 
+Look for existing solutions before writing your own software tools or engineering workflows.
 
-This skill heavily favors evidence of human adoption + recency, and tries to look for people who have had the same issue or question in online communities like reddit, twitter etc. so that you dont catastrophically miss an obvious solution because your agent has adhd and overthought the hell out of a simple question. 
+This skill looks for current evidence of real human use, not just newer tools. It searches for people who have had the same engineering problem in relevant communities like Reddit or Twitter, then checks important claims against primary sources, so you dont catastrophically miss an obvious solution because your agent has adhd and overthought the hell out of a simple question.
 
 ## Install
 
