@@ -51,6 +51,7 @@ Open with a short query, under five words, in the asker's words; then query by t
 | wrong | right |
 |---|---|
 | `gh-stars.sh "instagram downloader"` lists 15 repos; gallery-dl (19.7k stars) and instaloader (13.4k) are not among them | `reddit.sh DataHoarder "instagram"` threads name both; `gh api repos/mikf/gallery-dl` gives the count |
+| four phrasings of `gh-stars.sh "go retry http"`, all empty, before any thread was read | one `reddit.sh golang "retry"` thread names the libraries; `gh api repos/<owner>/<name>` counts each |
 
 ## Scripts
 

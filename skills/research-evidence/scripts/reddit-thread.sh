@@ -5,8 +5,10 @@ set -euo pipefail
 id="${1:?usage: reddit-thread.sh <post_id>}"; fetch="$(dirname "$0")/arctic-fetch.sh"
 "$fetch" "https://arctic-shift.photon-reddit.com/api/posts/ids?ids=$id" | python3 -c '
 import sys,json
-try: p=(json.load(sys.stdin).get("data") or [{}])[0]
-except Exception: p={}
+try: j=json.load(sys.stdin); p=(j.get("data") or [{}])[0]
+except Exception: j={}; p={}
+if not p:
+    print("archive error:", j.get("error") or "post not found", file=sys.stderr); sys.exit(1)
 sub=p.get("subreddit"); au=p.get("author"); nc=p.get("num_comments"); title=p.get("title"); body=(p.get("selftext") or "")[:1500]
 print(f"r/{sub} | {au} | {nc} comments")
 print(f"# {title}")
