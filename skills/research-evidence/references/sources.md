@@ -2,6 +2,16 @@
 
 Starting points, not rules. Dated; re-measure when they feel stale.
 
+## Venue by problem (measured 2026-09-16)
+
+Probed with `reddit.sh <sub> "<problem words>"`; a venue is listed once its threads carried ranked, dissenting replies. Add a row when a session measures a new one.
+
+| Problem | Venue | Empty on the same query |
+|---|---|---|
+| Bulk-download or archive a site or account | r/DataHoarder | HN; GitHub category search missed the top tools |
+| Digitize photo prints at home | r/AskPhotography | r/scanning, r/genealogy, r/DataHoarder, HN |
+| AI coding agents | r/ClaudeCode, X (below) | |
+
 ## Subreddits for AI coding-agent questions (measured 2026-08-27)
 
 Ranked by post volume and by sampling 40 recent titles for signal.
