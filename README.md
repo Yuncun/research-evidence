@@ -4,7 +4,7 @@ A Claude Code / agent skill for answering "what do people actually use for X?" w
 
 It adds to ordinary web search rather than replacing it. Sources are ranked by visible human adoption (points, comments, reactions, stars, push dates), every count is cited, and prior art is checked before anything gets hand-rolled.
 
-Its engineering-only sibling, [prior-art](https://github.com/Yuncun/prior-art), decides build-versus-adopt before a tool gets written. This repo was split out of that repo's history in September 2026 so the general "what do people use" skill keeps its scripts.
+Its engineering-only sibling, [prior-art](https://github.com/Yuncun/prior-art), decides build-versus-adopt before a tool gets written.
 
 ## Install
 

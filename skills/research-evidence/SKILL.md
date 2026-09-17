@@ -27,14 +27,30 @@ Adoption over argument, the failure this skill exists for:
 This skill adds to ordinary search. Step 0 always runs.
 
 0. **Plain web search**, two or three phrasings, no site filter. Catches essays, posts, talks, papers. Note what it returned.
-1. **Discourse**: HN, Reddit, X (`site:x.com`), GitHub issues with reactions. Threads name the problem, the tools picked, the rules settled on.
-2. **What the discourse names**: stars, push date, instruction files of each tool or repo.
-3. **Completeness**: star-sorted GitHub search on the category; large repos' agent instruction files.
-4. **Vendor docs and vendor engineers**, in parallel with 1 to 3; newer vendor material overrides community folklore.
+1. **Venue**: name who has this problem as a job or hobby, pick two or three subreddits those people use (`subs.sh <word>` lists names by size), and probe each with `reddit.sh <sub> "<problem words>"`; keep the ones that return threads with ranked replies. Nothing searches Reddit across subreddits, so candidates come from that judgment and from `references/sources.md`. HN and GitHub are venues only when the answer is a developer tool.
+2. **Discourse** in those venues: Reddit, HN, X (`site:x.com`), GitHub issues with reactions. Threads name the problem, the tools picked, the rules settled on.
+3. **What the discourse names**: stars, push date, instruction files of each tool or repo, looked up by name.
+4. **Completeness**: star-sorted GitHub search on the category; large repos' agent instruction files.
+5. **Vendor docs and vendor engineers**, in parallel with 2 to 4; newer vendor material overrides community folklore.
 
 Treat counts as claims: stars can be bought and threads seeded. Corroborate a count with the commit history, named users or forks, and discussion outside the project's own channels.
 
+A venue counts when wrong answers get corrected there: replies disagree, and the disagreement is ranked. A thread whose replies are all product plugs with no dissent is discounted, whatever its subreddit.
+
+| wrong | right |
+|---|---|
+| subreddits named after the object: the device, the file format, the site | subreddits of the people who do this for work or for fun |
+| replies that each name a different product and answer no one: cited as consensus | cited as unranked plugs; weight the thread where one reply corrected another and outranks it |
+
 Search the topic, not the framing: counting repos that use one label measures the label. Compare stars like with like: one category's top repo against another's.
+
+## Queries
+
+Open with a short query, under five words, in the asker's words; then query by the names the first results mention. The category word is rarely the tool's name: two people pick the same term for one thing under 20% of the time (Furnas et al., 1987), so a name lookup finds what a category search misses.
+
+| wrong | right |
+|---|---|
+| `gh-stars.sh "<category words>"` in three phrasings, all missing the tools the threads name | one thread names the tools; `gh api repos/<owner>/<name>` counts each |
 
 ## Scripts
 
@@ -44,6 +60,7 @@ All in `scripts/`; each prints usage when run bare.
 |---|---|
 | `hn.sh "<query>" [days] [min_points]` | HN stories by points and date |
 | `hn-item.sh <id> [depth]` | one HN story or comment with replies |
+| `subs.sh <name prefix> [limit]` | subreddits by subscribers, to pick venues |
 | `reddit.sh <subreddit> [title] [days or date] [limit]` | posts ranked by comment count |
 | `reddit-thread.sh <post_id>` | one post with its comment tree |
 | `x.sh <status_id or handle>` | one X post with engagement, or a profile |

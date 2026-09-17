@@ -3,6 +3,7 @@
 # unauthenticated clients). Scores are frozen at post time: rank by comments.
 # usage: reddit.sh <subreddit> [title_query] [since=days or YYYY-MM-DD, default 120] [limit=50]
 # output: comments  date  id  title
+# title_query is a substring match on titles: use one or two words, not a phrase.
 set -euo pipefail
 sub="${1:?usage: reddit.sh <subreddit> [title_query] [since] [limit]}"; q="${2:-}"
 since="${3:-120}"
