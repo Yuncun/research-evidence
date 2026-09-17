@@ -39,19 +39,18 @@ A venue counts when wrong answers get corrected there: replies disagree, and the
 
 | wrong | right |
 |---|---|
-| photo prints to digitize: r/scanning, r/genealogy, r/DataHoarder, HN probed, named after the object; all empty | the people who do it are photographers: r/AskPhotography, probed first, holds the threads |
-| eight replies each naming a different VPN, none answering another: cited as consensus | cited as unranked plugs; weight the thread where a 9-point reply corrected a 3-point one |
+| subreddits named after the object: the device, the file format, the site | subreddits of the people who do this for work or for fun |
+| replies that each name a different product and answer no one: cited as consensus | cited as unranked plugs; weight the thread where one reply corrected another and outranks it |
 
 Search the topic, not the framing: counting repos that use one label measures the label. Compare stars like with like: one category's top repo against another's.
 
 ## Queries
 
-Open with a short query, under five words, in the asker's words; then query by the names the first results mention. The category word is rarely the tool's name: two people pick the same term for one thing under 20% of the time (Furnas et al. 1987, 1,735 citations), so a name lookup finds what a category search misses.
+Open with a short query, under five words, in the asker's words; then query by the names the first results mention. The category word is rarely the tool's name: two people pick the same term for one thing under 20% of the time (Furnas et al., 1987), so a name lookup finds what a category search misses.
 
 | wrong | right |
 |---|---|
-| `gh-stars.sh "instagram downloader"` lists 15 repos; gallery-dl (19.7k stars) and instaloader (13.4k) are not among them | `reddit.sh DataHoarder "instagram"` threads name both; `gh api repos/mikf/gallery-dl` gives the count |
-| four phrasings of `gh-stars.sh "go retry http"`, all empty, before any thread was read | one `reddit.sh golang "retry"` thread names the libraries; `gh api repos/<owner>/<name>` counts each |
+| `gh-stars.sh "<category words>"` in three phrasings, all missing the tools the threads name | one thread names the tools; `gh api repos/<owner>/<name>` counts each |
 
 ## Scripts
 
