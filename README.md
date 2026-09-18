@@ -6,6 +6,23 @@ It adds to ordinary web search rather than replacing it. Sources are ranked by v
 
 Its engineering-only sibling, [prior-art](https://github.com/Yuncun/prior-art), decides build-versus-adopt before a tool gets written.
 
+## Optional source entry points
+
+[search-hn](skills/search-hn/SKILL.md) searches Hacker News and reads relevant
+story/comment context through Algolia and the official HN API. It uses the host's
+existing HTTP tools, with no new client, account, or dependency.
+
+Install this separately when you want access guidance without the
+`research-evidence` methodology:
+
+```bash
+npx skills add Yuncun/research-evidence --skill search-hn
+```
+
+It does not make HN a mandatory research source, require a minimum score, monitor
+users, or perform posting/voting actions. Search failures and partial threads are
+reported explicitly.
+
 ## Install
 
 Claude Code, as a plugin:
@@ -18,7 +35,7 @@ Claude Code, as a plugin:
 Any agent that reads `SKILL.md` (Copilot, Codex, Cursor, ...), via [skills.sh](https://skills.sh):
 
 ```
-npx skills add Yuncun/research-evidence
+npx skills add Yuncun/research-evidence --skill research-evidence
 ```
 
 ## What's inside
