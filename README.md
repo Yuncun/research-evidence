@@ -6,6 +6,35 @@ It adds to ordinary web search rather than replacing it. Sources are ranked by v
 
 Its engineering-only sibling, [prior-art](https://github.com/Yuncun/prior-art), decides build-versus-adopt before a tool gets written.
 
+## Optional source entry points
+
+| Skill | Purpose | Access |
+|---|---|---|
+| [search-hn](skills/search-hn/SKILL.md) | HN search and thread context | Algolia and official HN API |
+| [search-reddit](skills/search-reddit/SKILL.md) | Reddit discovery and thread context | Existing permitted search/browser/API |
+
+Both use the host's existing tools, with no new client or dependency. Install
+either separately when you want access guidance without the
+`research-evidence` methodology:
+
+```bash
+npx skills add Yuncun/research-evidence --skill search-hn
+npx skills add Yuncun/research-evidence --skill search-reddit
+```
+
+Neither makes a platform mandatory, requires a minimum score, monitors users, or
+performs posting/voting actions. Search failures, unverified search-generated
+links, and partial threads remain explicit.
+
+**Reddit access is separate from the skill.** Approved API access or a permitted
+readable browser surface is needed for full thread retrieval. Search-index
+excerpts can support only limited findings. This entry point does not bundle
+credentials, anonymous JSON clients, or an archive fallback around access denials.
+
+The original `research-evidence` skill and its archive-based helpers remain
+unchanged. Installing the whole plugin exposes every bundled skill; use the
+individual commands above to select only source-access guidance.
+
 ## Install
 
 Claude Code, as a plugin:
@@ -18,7 +47,7 @@ Claude Code, as a plugin:
 Any agent that reads `SKILL.md` (Copilot, Codex, Cursor, ...), via [skills.sh](https://skills.sh):
 
 ```
-npx skills add Yuncun/research-evidence
+npx skills add Yuncun/research-evidence --skill research-evidence
 ```
 
 ## What's inside
